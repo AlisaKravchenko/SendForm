@@ -8,7 +8,7 @@ $name = $_POST['user_name'];
 $phone = $_POST['user_phone'];
 $email = $_POST['user_email'];
 
-$mail->SMTPDebug = 3;                               // Enable verbose debug output
+$mail->SMTPDebug = 0;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';  				// Specify main and backup SMTP servers
@@ -19,7 +19,7 @@ $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, 
 $mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
 
 $mail->setFrom('sendforms0@gmail.com'); // от кого будет уходить письмо?
-$mail->addAddress('alisakrav5@gmail.com');     // Кому будет уходить письмо 
+$mail->addAddress('alisakrav5@gmail.com');     // Кому будет уходить письмо
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
@@ -33,7 +33,8 @@ $mail->Body    = '' .$name . ' оставил заявку, его телефо�
 $mail->AltBody = '';
 
 if(!$mail->send()) {
-    echo 'Произошла ошибка';
+    echo '<h3>Произошла ошибка</h3>';
+    echo  '<strong>Сообщение:</strong><br>' .$name . ' оставил заявку, его телефон ' .$phone. '<br>Почта этого пользователя: ' .$email;
 } else {
     header('location: thank-you.html');
 }
