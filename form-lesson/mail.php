@@ -37,8 +37,6 @@ if(!$mail->send()) {
     echo '<h3>Произошла ошибка</h3>';
     echo  '<strong>Сообщение:</strong><br>' .$name . ' оставил заявку, его телефон ' .$phone. '<br>Почта этого пользователя: ' .$email;
 } else {
-    // header('location: thank-you.html');
-    echo '<h3>Спасибо</h3>';
+    header('location: thank-you.html');
 }
-print_r("</pre>");
 ?>
