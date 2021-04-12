@@ -8,18 +8,19 @@ $name = $_POST['user_name'];
 $phone = $_POST['user_phone'];
 $email = $_POST['user_email'];
 
-$mail->SMTPDebug = 3;                               // Enable verbose debug output
+print_r("<pre>");
+$mail->SMTPDebug = 4;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp.gmail.com';  				// Specify main and backup SMTP servers
+$mail->Host = 'smtp.yandex.ru';  				// Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'sendforms0@gmail.com'; // Ваш логин от почты с которой будут отправляться письма
+$mail->Username = 'sendforms1@yandex.ru'; // Ваш логин от почты с которой будут отправляться письма
 $mail->Password = '89319637980adk'; // Ваш пароль от почты с которой будут отправляться письма
 $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
 
-$mail->setFrom('sendforms0@gmail.com'); // от кого будет уходить письмо?
-$mail->addAddress('alisakrav5@gmail.com');     // Кому будет уходить письмо 
+$mail->setFrom('sendforms1@yandex.ru'); // от кого будет уходить письмо?
+$mail->addAddress('alisakravchenko2008@yandex.ru');     // Кому будет уходить письмо
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
@@ -33,8 +34,11 @@ $mail->Body    = '' .$name . ' оставил заявку, его телефо�
 $mail->AltBody = '';
 
 if(!$mail->send()) {
-    echo 'Произошла ошибка';
+    echo '<h3>Произошла ошибка</h3>';
+    echo  '<strong>Сообщение:</strong><br>' .$name . ' оставил заявку, его телефон ' .$phone. '<br>Почта этого пользователя: ' .$email;
 } else {
-    header('location: thank-you.html');
+    // header('location: thank-you.html');
+    echo '<h3>Спасибо</h3>';
 }
+print_r("</pre>");
 ?>
