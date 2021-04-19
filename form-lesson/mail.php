@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
@@ -12,7 +12,7 @@ print_r("<pre>");
 $mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp.yandex.ru';  				// Specify main and backup SMTP servers
+$mail->Host = 'smtp.yandex.ru';                // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
 $mail->Username = 'robot@allceptik.ru'; // Ваш логин от почты с которой будут отправляться письма
 $mail->Password = 'robot235AAmdnJHDs'; // Ваш пароль от почты с которой будут отправляться письма
@@ -30,15 +30,17 @@ $mail->addAddress('ay232@ya.ru');               // Name is optional
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Заявка с тестового сайта';
-$mail->Body    = '' .$name . ' оставил заявку, его телефон ' .$phone. '<br>Почта этого пользователя: ' .$email;
+$mail->Body = $body = 'Это не робот ) Это тестовое письмо )))' . $name . ' оставил на сайте заявку с пожеланием связаться с нами по телефону: ' . $phone . '<br>E-mail: ' . $email;
 $mail->AltBody = '';
 
-if(!$mail->send()) {
+if (!$mail->send()) {
     echo '<h3>Произошла ошибка</h3>';
-    echo  '<strong>Сообщение:</strong><br>' .$name . ' оставил заявку, его телефон ' .$phone. '<br>Почта этого пользователя: ' .$email;
+    echo '<strong>Сообщение:</strong><br>' . $name . ' оставил заявку, его телефон ' . $phone . '<br>Почта этого пользователя: ' . $email . '<br>';
+    echo 'Текст письма:<br>';
+    echo $body . '<br>';
+
+
 } else {
-    // header('location: thank-you.html');
-    echo '<h3>Спасибо</h3>';
+    header('location: thank-you.html');
 }
-print_r("</pre>");
 ?>
