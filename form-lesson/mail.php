@@ -9,19 +9,19 @@ $phone = $_POST['user_phone'];
 $email = $_POST['user_email'];
 
 print_r("<pre>");
-$mail->SMTPDebug = 4;                               // Enable verbose debug output
+$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.yandex.ru';  				// Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'sendforms1@yandex.ru'; // Ваш логин от почты с которой будут отправляться письма
-$mail->Password = '89319637980adk'; // Ваш пароль от почты с которой будут отправляться письма
+$mail->Username = 'robot@allceptik.ru'; // Ваш логин от почты с которой будут отправляться письма
+$mail->Password = 'robot235AAmdnJHDs'; // Ваш пароль от почты с которой будут отправляться письма
 $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
 
-$mail->setFrom('sendforms1@yandex.ru'); // от кого будет уходить письмо?
+$mail->setFrom('robot@allceptik.ru'); // от кого будет уходить письмо?
 $mail->addAddress('alisakravchenko2008@yandex.ru');     // Кому будет уходить письмо
-//$mail->addAddress('ellen@example.com');               // Name is optional
+$mail->addAddress('ay232@ya.ru');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
 //$mail->addBCC('bcc@example.com');
