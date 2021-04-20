@@ -8,8 +8,7 @@ $name = $_POST['user_name'];
 $phone = $_POST['user_phone'];
 $email = $_POST['user_email'];
 
-print_r("<pre>");
-$mail->SMTPDebug = 3;                               // Enable verbose debug output
+$mail->SMTPDebug = 0;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.yandex.ru';                // Specify main and backup SMTP servers
@@ -20,8 +19,8 @@ $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, 
 $mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
 
 $mail->setFrom('robot@allceptik.ru'); // от кого будет уходить письмо?
-$mail->addAddress('alisakravchenko2008@yandex.ru');     // Кому будет уходить письмо
-$mail->addAddress('ay232@ya.ru');               // Name is optional
+$mail->addAddress('sendforms0@gmail.com');     // Кому будет уходить письмо
+//$mail->addAddress('ay232@ya.ru');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
 //$mail->addBCC('bcc@example.com');
@@ -30,7 +29,7 @@ $mail->addAddress('ay232@ya.ru');               // Name is optional
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Заявка с тестового сайта';
-$mail->Body = $body = 'Это не робот ) Это тестовое письмо )))' . $name . ' оставил на сайте заявку с пожеланием связаться с нами по телефону: ' . $phone . '<br>E-mail: ' . $email;
+$mail->Body = $body = 'Письмо с тестового сайта.<br>' . $name . ' оставил на сайте заявку с пожеланием связаться с нами по телефону: ' . $phone . '<br>E-mail: ' . $email;
 $mail->AltBody = '';
 
 if (!$mail->send()) {
